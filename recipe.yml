@@ -65,6 +65,7 @@ rpm:
     - kitty
     - zsh
     - papirus-icon-theme
+    - mpd
     # Add your own below:
     # Example:
     # - tilix
