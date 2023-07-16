@@ -67,6 +67,7 @@ rpm:
     - zsh
     - papirus-icon-theme
     - mpd
+    - mpc
     - util-linux-user
     - wireguard-tools
     - qemu-kvm
