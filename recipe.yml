@@ -76,10 +76,12 @@ rpm:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox
     - firefox-langpacks
-    - plasma-discover-flatpak
     - plasma-discover
+    - plasma-discover-flatpak
     - plasma-discover-rpm-ostree
+    - plasma-discover-notifier
     - qt
+    - sni-qt
     - kf5-akonadi-server
     - kf5-akonadi-server-mysql
 
