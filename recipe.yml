@@ -96,6 +96,8 @@ rpm:
     - qt-x11
     - qt-common
     - qt-at-spi
+    - ibus-qt
+    - dbusmenu-qt
     - kf5-akonadi-server
     - kf5-akonadi-server-mysql
     - open-sans-fonts
