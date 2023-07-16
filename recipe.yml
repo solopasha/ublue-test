@@ -66,6 +66,14 @@ rpm:
     - zsh
     - papirus-icon-theme
     - mpd
+    - util-linux-user
+    - wireguard-tools
+    - qemu-kvm
+    - libvirt
+    - virt-manager
+    - virt-install
+    - rust-bat
+    - ddcutil
     # Add your own below:
     # Example:
     # - tilix
@@ -82,6 +90,9 @@ rpm:
     - plasma-discover-notifier
     - qt
     - sni-qt
+    - qt-x11
+    - qt-common
+    - qt-at-spi
     - kf5-akonadi-server
     - kf5-akonadi-server-mysql
 

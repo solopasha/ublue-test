@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+value=$(ddcutil getvcp 14 | sed -n 's/.*sl=\(.*\))/\1/p')
+if [[ "${value}" == "0x02" ]]; then
+ddcutil setvcp 14 4 --bus 4 &
+ddcutil setvcp 14 4 --bus 5 &
+else
+ddcutil setvcp 14 2 --bus 4 &
+ddcutil setvcp 14 2 --bus 5 &
+fi
