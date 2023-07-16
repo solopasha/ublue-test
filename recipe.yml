@@ -72,8 +72,11 @@ rpm:
     - libvirt
     - virt-manager
     - virt-install
-    - rust-bat
+    - bat
     - ddcutil
+    - google-cousine-fonts
+    - google-arimo-fonts
+    - google-tinos-fonts
     # Add your own below:
     # Example:
     # - tilix
@@ -95,6 +98,7 @@ rpm:
     - qt-at-spi
     - kf5-akonadi-server
     - kf5-akonadi-server-mysql
+    - open-sans-fonts
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
