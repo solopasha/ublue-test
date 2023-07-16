@@ -110,6 +110,7 @@ rpm:
     - crontabs
     - at
     - patch
+    - redhat-lsb-core
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
