@@ -80,6 +80,7 @@ rpm:
     - google-cousine-fonts
     - google-arimo-fonts
     - google-tinos-fonts
+    - fira-code-fonts
     # Add your own below:
     # Example:
     # - tilix
@@ -104,6 +105,11 @@ rpm:
     - kf5-akonadi-server
     - kf5-akonadi-server-mysql
     - open-sans-fonts
+    - cronie
+    - cronie-anacron
+    - crontabs
+    - at
+    - patch
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
