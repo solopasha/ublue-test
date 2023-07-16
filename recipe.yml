@@ -49,6 +49,7 @@ rpm:
     # Example (which also demonstrates version number expansion):
     # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/solopasha/kitty/repo/fedora-%FEDORA_VERSION%/solopasha-kitty-fedora-%FEDORA_VERSION%.repo
+    - https://copr.fedorainfracloud.org/coprs/solopasha/xwayland/repo/fedora-%FEDORA_VERSION%/solopasha-xwayland-fedora-%FEDORA_VERSION%.repo
 
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
