@@ -73,6 +73,7 @@ rpm:
     - libvirt
     - virt-manager
     - virt-install
+    - virt-top
     - bat
     - ddcutil
     - google-cousine-fonts
