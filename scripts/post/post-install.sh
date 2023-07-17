@@ -4,4 +4,3 @@ systemctl enable fixcard.service
 systemctl disable nvidia-powerd.service
 systemctl --global enable mpd
 
-rpm-ostree override replace 'https://koji.fedoraproject.org/koji/buildinfo?buildID=2234125'
