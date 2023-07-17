@@ -27,6 +27,8 @@ COPY usr /usr
 # Copy the recipe that we're building.
 COPY ${RECIPE} /usr/share/ublue-os/recipe.yml
 
+COPY cosign.pub /usr/etc/pki/containers/cosign.pub
+
 # # Copy nix install script and Universal Blue wallpapers RPM from Bling image
 # COPY --from=ghcr.io/ublue-os/bling:latest /rpms/ublue-os-wallpapers-0.1-1.fc38.noarch.rpm /tmp/ublue-os-wallpapers-0.1-1.fc38.noarch.rpm
 
