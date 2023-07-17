@@ -1,0 +1,3 @@
+docker:
+  ghcr.io/solopasha/kinoite-solo:
+    use-sigstore-attachments: true

@@ -23,7 +23,7 @@
             "ghcr.io/solopasha": [
                 {
                     "type": "sigstoreSigned",
-                    "keyPath": "/etc/pki/containers/cosign.pub",
+                    "keyPath": "/etc/pki/containers/solopasha.pub",
                     "signedIdentity": {
                         "type": "matchRepository"
                     }
