@@ -6,7 +6,7 @@ After=nvidia-resume.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/fixcard.sh resume
+ExecStart=/usr/bin/fixcard.sh resume
 
 [Install]
 WantedBy=systemd-suspend.service
