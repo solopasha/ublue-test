@@ -4,7 +4,7 @@ on:
   # regardless of the branch names. (Not just "live, template and main" branches.)
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "0 8 * * *"
   # Build automatically after pushing commits or tags to the "live", "template"
   # or "main" branches, except when the commit only affects "documentation" text files.
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push
@@ -16,15 +16,6 @@ on:
     paths-ignore:
       - "**.md"
       - "**.txt"
-  # Build pull requests whenever they are opened or updated, to make sure they
-  # work. The build won't be deployed, since we filter out PRs in the deployment
-  # stage. Note that submitted PRs run the workflow of the *fork's* own primary
-  # branch, using the fork's own secrets/environment. Please be sure to sync
-  # your primary branch with upstream's latest workflow before submitting PRs!
-  # For pull requests, we build *any* branch regardless of name, to allow "build
-  # checks" to succeed for typical PR branch names such as "fix-something".
-  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
-  pull_request:
   # Build when manually triggering this workflow for a branch. This allows you
   # to build any branch, even if it's not listed in the automated triggers above.
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
@@ -135,14 +126,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
 
-      # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
-      # https://github.com/macbre/push-to-ghcr/issues/12
-      - name: Lowercase Registry
-        id: registry_case
-        uses: ASzc/change-string-case-action@v5
-        with:
-          string: ${{ env.IMAGE_REGISTRY }}
-
       # Push the image to GHCR (Image Registry)
       - name: Push To GHCR
         uses: redhat-actions/push-to-registry@v2
@@ -154,7 +137,7 @@ jobs:
         with:
           image: ${{ steps.build_image.outputs.image }}
           tags: ${{ steps.build_image.outputs.tags }}
-          registry: ${{ steps.registry_case.outputs.lowercase }}
+          registry: ${{ env.IMAGE_REGISTRY }}
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
           extra-args: |
@@ -175,7 +158,7 @@ jobs:
       - name: Sign container image
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/live'
         run: |
-          cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ env.IMAGE_NAME }}@${TAGS}
+          cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}@${TAGS}
         env:
           TAGS: ${{ steps.push.outputs.digest }}
           COSIGN_EXPERIMENTAL: false
