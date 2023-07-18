@@ -74,6 +74,5 @@ get_yaml_array remove_rpms '.rpm.remove[]'
 rpm-ostree override remove \
     ${remove_rpms[@]} \
     $(printf -- "--install=%s " ${install_rpms[@]})
-    rpm-ostree cleanup -m
 # Run "post" scripts.
 run_scripts "post"
