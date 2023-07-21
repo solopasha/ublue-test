@@ -51,6 +51,7 @@ rpm:
     - https://copr.fedorainfracloud.org/coprs/solopasha/kitty/repo/fedora-%FEDORA_VERSION%/solopasha-kitty-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/solopasha/xwayland/repo/fedora-%FEDORA_VERSION%/solopasha-xwayland-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/solopasha/ddcutil/repo/fedora-%FEDORA_VERSION%/solopasha-ddcutil-fedora-%FEDORA_VERSION%.repo
+    - https://copr.fedorainfracloud.org/coprs/solopasha/cantata/repo/fedora-%FEDORA_VERSION%/solopasha-cantata-fedora-%FEDORA_VERSION%.repo
 
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
@@ -69,6 +70,7 @@ rpm:
     - papirus-icon-theme
     - mpd
     - mpc
+    - cantata
     - util-linux-user
     - wireguard-tools
     - qemu-kvm
@@ -77,6 +79,8 @@ rpm:
     - virt-install
     - virt-top
     - bat
+    - ripgrep
+    - fd-find
     - ddcutil
     - google-cousine-fonts
     - google-arimo-fonts
