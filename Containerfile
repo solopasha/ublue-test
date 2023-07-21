@@ -49,4 +49,7 @@ COPY scripts /tmp/scripts
 RUN chmod +x /tmp/scripts/build.sh && \
         /tmp/scripts/build.sh && \
         rm -rf /tmp/* /var/* && \
-        ostree container commit
+        ostree container commit && \
+        mkdir -p /var/tmp && \
+        chmod 1777 /var/tmp && \
+        chmod 755 /var
