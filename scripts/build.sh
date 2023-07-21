@@ -52,27 +52,27 @@ run_scripts() {
 }
 run_scripts "pre"
 
-# # Install RPMs.
-# 
-# if [[ ${#install_rpms[@]} -gt 0 ]]; then
-#     echo "-- Installing RPMs defined in recipe.yml --"
-#     echo "Installing: ${install_rpms[@]}"
-#     rpm-ostree install "${install_rpms[@]}"
-#     echo "---"
-# fi
-
-# # Remove RPMs.
-# 
-# if [[ ${#remove_rpms[@]} -gt 0 ]]; then
-#     echo "-- Removing RPMs defined in recipe.yml --"
-#     echo "Removing: ${remove_rpms[@]}"
-#     rpm-ostree override remove "${remove_rpms[@]}"
-#     echo "---"
-# fi
+# Install RPMs.
 get_yaml_array install_rpms '.rpm.install[]'
+if [[ ${#install_rpms[@]} -gt 0 ]]; then
+    echo "-- Installing RPMs defined in recipe.yml --"
+    echo "Installing: ${install_rpms[@]}"
+    rpm-ostree install "${install_rpms[@]}"
+    echo "---"
+fi
+
+# Remove RPMs.
 get_yaml_array remove_rpms '.rpm.remove[]'
-rpm-ostree override remove \
-    ${remove_rpms[@]} \
-    $(printf -- "--install=%s " ${install_rpms[@]})
+if [[ ${#remove_rpms[@]} -gt 0 ]]; then
+    echo "-- Removing RPMs defined in recipe.yml --"
+    echo "Removing: ${remove_rpms[@]}"
+    rpm-ostree override remove "${remove_rpms[@]}"
+    echo "---"
+fi
+# get_yaml_array install_rpms '.rpm.install[]'
+# get_yaml_array remove_rpms '.rpm.remove[]'
+# rpm-ostree override remove \
+#     ${remove_rpms[@]} \
+#     $(printf -- "--install=%s " ${install_rpms[@]})
 # Run "post" scripts.
 run_scripts "post"

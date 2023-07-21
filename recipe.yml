@@ -59,34 +59,26 @@ rpm:
   # performed via rpm-ostree during the image build, and will be pre-installed
   # at the "system level" in the final image.
   install:
-    # Needed for yafti (the first boot installer). Remove if you're not using yafti.
-    # - python3-pip
-    # GNOME's GTK4 theme, Libadwaita. Already included in Silverblue, but not
-    # other spins. You can remove if you aren't using yafti, but many native
-    # apps and binaries require it, so it's a good idea to always include it
-    # if you ever download or compile any custom software on your machine.
-    - libadwaita
-    - kitty
-    - zsh
-    - papirus-icon-theme
-    - mpd
-    - mpc
-    - cantata
-    - util-linux-user
-    - wireguard-tools
-    - qemu-kvm
-    - libvirt
-    - virt-manager
-    - virt-install
-    - virt-top
     - bat
-    - ripgrep
-    - fd-find
+    - cantata
     - ddcutil
-    - google-cousine-fonts
-    - google-arimo-fonts
-    - google-tinos-fonts
+    - fd-find
     - fira-code-fonts
+    - google-arimo-fonts
+    - google-cousine-fonts
+    - google-tinos-fonts
+    - kitty
+    - libadwaita
+    - libvirt
+    - mpc
+    - mpd
+    - papirus-icon-theme
+    - qemu-kvm
+    - ripgrep
+    - util-linux-user
+    - virt-install
+    - virt-manager
+    - virt-top
     # Add your own below:
     # Example:
     # - tilix
@@ -94,23 +86,6 @@ rpm:
   # These RPMs will be removed from the system image. This step happens during
   # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
   remove:
-    # Remove the native firefox (from Fedora) in favor of the Flatpak.
-    - firefox
-    - firefox-langpacks
-    - plasma-discover
-    - plasma-discover-flatpak
-    - plasma-discover-rpm-ostree
-    - plasma-discover-notifier
-    - qt
-    - sni-qt
-    - qt-x11
-    - qt-common
-    - qt-at-spi
-    - ibus-qt
-    - dbusmenu-qt
-    - kf5-akonadi-server
-    - kf5-akonadi-server-mysql
-    - open-sans-fonts
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
