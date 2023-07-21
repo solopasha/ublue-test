@@ -48,8 +48,5 @@ COPY scripts /tmp/scripts
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/scripts/build.sh && \
         /tmp/scripts/build.sh && \
-        rm -rf /tmp/* /var/* && \
-        ostree container commit && \
-        mkdir -p /var/tmp && \
-        chmod 1777 /var/tmp && \
-        chmod 755 /var
+        rm -r /var/lib/unbound/root.key && \
+        ostree container commit
