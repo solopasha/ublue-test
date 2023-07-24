@@ -4,7 +4,7 @@ on:
   # regardless of the branch names. (Not just "live, template and main" branches.)
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   schedule:
-    - cron: "0 8 * * *"
+    - cron: '0 8 * * *'
   # Build automatically after pushing commits or tags to the "live", "template"
   # or "main" branches, except when the commit only affects "documentation" text files.
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push
@@ -14,8 +14,8 @@ on:
       - template
       - main
     paths-ignore:
-      - "**.md"
-      - "**.txt"
+      - '**.md'
+      - '**.txt'
   # Build when manually triggering this workflow for a branch. This allows you
   # to build any branch, even if it's not listed in the automated triggers above.
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
@@ -46,7 +46,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Add yq for reading recipe.yml
-        uses: mikefarah/yq@v4.34.1
+        uses: mikefarah/yq@v4.34.2
 
       - name: Gather image data from recipe
         run: |
