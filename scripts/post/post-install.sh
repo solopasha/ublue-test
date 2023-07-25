@@ -5,4 +5,3 @@ rpm-ostree override replace https://bodhi.fedoraproject.org/updates/FEDORA-2023-
 systemctl enable fixcard.service
 systemctl disable nvidia-powerd.service
 systemctl --global enable mpd
-
